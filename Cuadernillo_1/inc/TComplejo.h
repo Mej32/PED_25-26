@@ -12,32 +12,30 @@ class TComplejo{
     
     public:
         // Forma canónica
-        TComplejo();
-        TComplejo(const double re);
-        TComplejo(const double re, const double im);
+        TComplejo(const double re = 0.0, const double im = 0.0);
         TComplejo(const TComplejo &tcomp);
         ~TComplejo();
         TComplejo& operator=(const TComplejo &tcomp);
 
         // Métodos
         // Sobrecarga de operadores ariméticos;
-        TComplejo operator- (const TComplejo &tcomp);
-        TComplejo operator* (const TComplejo &tcomp);
-        TComplejo operator+ (const TComplejo &tcomp);
-        TComplejo operator+ (const double num);
-        TComplejo operator- (const double num);
-        TComplejo operator* (const double num);
+        TComplejo operator-(const TComplejo &tcomp) const;
+        TComplejo operator*(const TComplejo &tcomp) const;
+        TComplejo operator+(const TComplejo &tcomp) const;
+        TComplejo operator+(const double num) const;
+        TComplejo operator-(const double num) const;
+        TComplejo operator*(const double num) const;
         
 
         // Otros operadores
-        bool operator== (const TComplejo &tcomp);
-        bool operator!= (const TComplejo &tcomp); 
-        double Re(); //Getters
-        double Im();
+        bool operator==(const TComplejo &tcomp) const;
+        bool operator!=(const TComplejo &tcomp) const; 
+        double Re() const; //Getters
+        double Im() const;
         void Re(const double real); //Setters
         void Im(const double imag); 
-        double Arg(); // Calcula el Argumento (en Radianes)
-        double Mod(); // Calcula el Módulo
+        double Arg() const; // Calcula el Argumento (en Radianes)
+        double Mod() const; // Calcula el Módulo
         
 
         // Funciones amigas

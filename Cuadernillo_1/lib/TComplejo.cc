@@ -3,7 +3,7 @@
 //========================================================================================================================================
 //                                                       Forma canónica
 //========================================================================================================================================
-TComplejo::TComplejo(const double re = 0.0, const double im = 0.0){this->re = re; this->im = im;}
+TComplejo::TComplejo(const double re, const double im){this->re = re; this->im = im;}
 
 TComplejo::TComplejo(const TComplejo &tcomp){
     this->re = tcomp.re;
@@ -26,15 +26,15 @@ TComplejo& TComplejo::operator=(const TComplejo &tcomp){
 //                                                Sobrecarga de operadores ariméticos
 //========================================================================================================================================
 
-TComplejo TComplejo::operator+(const TComplejo &tcomp){
+TComplejo TComplejo::operator+(const TComplejo &tcomp)const{
     return TComplejo(this->re + tcomp.re, this->im + tcomp.im);
 }
 
-TComplejo TComplejo::operator-(const TComplejo &tcomp){
+TComplejo TComplejo::operator-(const TComplejo &tcomp)const{
     return TComplejo(this->re - tcomp.re, this->im - tcomp.im);
 }
 
-TComplejo TComplejo::operator*(const TComplejo &tcomp){
+TComplejo TComplejo::operator*(const TComplejo &tcomp)const{
     //return TComplejo(this->re * tcomp.re, this->im * tcomp.im);
     return TComplejo(
         (this->re * tcomp.re) - (this->im * tcomp.im) ,
@@ -42,15 +42,15 @@ TComplejo TComplejo::operator*(const TComplejo &tcomp){
     );
 }
 
-TComplejo TComplejo::operator+(const double num){
+TComplejo TComplejo::operator+(const double num)const{
     return TComplejo(this->re + num, this->im);
 }
 
-TComplejo TComplejo::operator-(const double num){
+TComplejo TComplejo::operator-(const double num)const{
     return TComplejo(this->re - num, this->im);
 }
 
-TComplejo TComplejo::operator*(const double num){
+TComplejo TComplejo::operator*(const double num)const{
     //return TComplejo(this->re * num, this->im);
     return TComplejo(this->re * num, this->im * num);
 }
@@ -60,14 +60,14 @@ TComplejo TComplejo::operator*(const double num){
 //========================================================================================================================================
 
 
-bool TComplejo::operator==(const TComplejo &tcomp){return (this->re == tcomp.re && this->im == tcomp.im);}
-bool TComplejo::operator!=(const TComplejo &tcomp){return !(operator==(tcomp));}
-double TComplejo::Re(){return this->re;}
-double TComplejo::Im(){return this->im;}
+bool TComplejo::operator==(const TComplejo &tcomp)const{return (this->re == tcomp.re && this->im == tcomp.im);}
+bool TComplejo::operator!=(const TComplejo &tcomp)const{return !(operator==(tcomp));}
+double TComplejo::Re()const{return this->re;}
+double TComplejo::Im()const{return this->im;}
 void TComplejo::Re(const double real){this->re = real;}
-void TComplejo::Im(const double imag){this->im = im;}
-double TComplejo::Arg(){return atan2(this->im, this->re);} //Atan2 devuelve el resultado ya en radianes y en un rango comprendido entre [π, -π]
-double TComplejo::Mod(){
+void TComplejo::Im(const double imag){this->im = imag;}
+double TComplejo::Arg()const{return atan2(this->im, this->re);} //Atan2 devuelve el resultado ya en radianes y en un rango comprendido entre [π, -π]
+double TComplejo::Mod()const{
     double mod = 0.0;
     mod = sqrt(pow(this->re, 2) + pow(this->im, 2));
     //mod = hypot(this->re,this->im);
