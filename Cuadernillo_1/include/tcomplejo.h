@@ -1,5 +1,5 @@
-#ifndef TCOMPLEJO_H
-#define TCOMPLEJO_H
+#ifndef __TCOMPLEJO_H__
+#define __TCOMPLEJO_H__
 
 #include <iostream>
 
