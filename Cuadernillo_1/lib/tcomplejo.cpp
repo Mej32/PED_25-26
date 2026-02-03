@@ -10,7 +10,7 @@ TComplejo::TComplejo(const TComplejo &tcomp){
     this->im = tcomp.im;
 }
 
-TComplejo::~TComplejo(){this->re = 0.0; this->im = 0.0;} 
+TComplejo::~TComplejo(){this->re = this->im = 0.0;} 
 
 TComplejo& TComplejo::operator=(const TComplejo &tcomp){
     if(this != &tcomp){
