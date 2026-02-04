@@ -27,7 +27,7 @@ TVectorCom &TVectorCom::operator=(const TVectorCom &tvc){
     if(this != &tvc){
         if (this->c != NULL){delete [] this->c;}
         this->tamano = tvc.tamano;
-        this->c = new TComplejo[this->tamano];
+        tvc.tamano == 0 ? this->c = NULL : this->c = new TComplejo[this->tamano];
         for(int i = 0; i < tamano; i++){
             this->c[i] = tvc.c[i];
         }
