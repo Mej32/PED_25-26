@@ -25,9 +25,9 @@ class TVectorCom{
         
         int Tamano() const;
         int Ocupadas() const;
-        bool ExisteCom(const TComplejo &tvc) const;
+        bool ExisteCom(const TComplejo &tc) const;
         void MostrarComplejos(const double arg) const;
-        bool Redimensionar(const int n);
+        bool Redimensionar(const int ntam);
 
         //Funciones amigas amigas
         friend ostream& operator<<(ostream &os, TVectorCom &tvc);

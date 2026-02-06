@@ -21,7 +21,7 @@ TVectorCom::TVectorCom(const TVectorCom &tvc){
     }
 }
 
-TVectorCom::~TVectorCom(){delete [] this->c; this->tamano = 0;}
+TVectorCom::~TVectorCom(){delete [] this->c; this->c = NULL; this->tamano = 0;}
 
 TVectorCom &TVectorCom::operator=(const TVectorCom &tvc){
     if(this != &tvc){
@@ -72,6 +72,55 @@ int TVectorCom::Ocupadas() const{
     }
     return ocupadas;
 }
+
+
+bool TVectorCom::ExisteCom(const TComplejo &tc) const{
+    bool existe = false;
+    for(int i = 0; i < this->tamano; i++){
+        if(this->c[i] == tc) existe = true; break;
+    }
+
+    return existe;
+}
+
+void TVectorCom::MostrarComplejos(const double arg) const{
+    cout << "[";
+    bool primerel = true;
+    for(int i = 0; i < this->tamano; i++){
+        if(this->c[i].Arg() >= arg) {
+            if(!primerel) cout << ",";
+            cout << this->c[i];
+            primerel = false;
+        }
+    }
+    cout << "]";
+}
+
+bool TVectorCom::Redimensionar(const int ntam){
+    if(ntam <= 0 || ntam == this->tamano) return false;
+    TVectorCom nv = TVectorCom(ntam);
+    for(int i = 0; i < ntam; i++){ //No es necesario distinguier entre los dos casos, se inicializa todo a cero y luego se copian según el nuevo tamaño
+        if(i < tamano){
+            nv.c[i] = this->c[i];
+        }
+    }
+    *this = nv;
+    return true;
+}
+
 //========================================================================================================================================
 //                                                        Funciones amigas
 //========================================================================================================================================
+
+ostream &operator<<(ostream &os, TVectorCom &tvc){
+    bool primero = true;
+    os << "[";
+    for(int i = 0; i < tvc.tamano; i++){
+        if(!primero) os << ", ";
+        os << "(" << i+1 << ")" << " " << tvc.c[i];
+        primero = false;
+    }
+    os << "]";
+    
+    return os;
+}
