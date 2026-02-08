@@ -1,5 +1,5 @@
-#ifndef __TVectorCom_H__
-#define __TVectorCom_H__
+#ifndef __TVECTORCOMPLEJO__H__
+#define __TVECTORCOMPLEJO__H__
 #include "tcomplejo.h"
 
 class TVectorCom{
