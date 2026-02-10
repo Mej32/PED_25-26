@@ -5,8 +5,33 @@
 
 class TListaCom{
     private:
+    TListaNodo *primero; 
+    TListaNodo *ultimo; 
 
     public:
+    //Forma canónica
+    TListaCom (); 
+    TListaCom (const TListaCom &tlc); 
+    ~TListaCom (); 
+    TListaCom & operator=(const TListaCom &tlc); 
+
+    //Métodos
+    bool operator==(const TListaCom &tlc) const; 
+    bool operator!=(const TListaCom &tlc) const; 
+    TListaCom operator+(const TListaCom &tlc) const; 
+    TListaCom operator-(const TListaCom &tlc) const;  
+    bool EsVacia() const; 
+    bool InsCabeza(const TComplejo &tc);  
+    bool InsertarI(const TComplejo &tc, const TListaPos &tlp); 
+    bool InsertarD(const TComplejo &tc, const TListaPos &tlp); 
+    bool Borrar(const TComplejo &tc); 
+    bool BorrarTodos(const TComplejo &tc); 
+    bool Borrar(const TListaPos &tlp); 
+    TComplejo Obtener(const TListaPos &tlp) const; 
+    bool Buscar(const TComplejo &tc) const; 
+    int Longitud() const; 
+    TListaPos Primera() const; 
+    TListaPos Ultima() const;
 
     friend class TListaPos; 
     friend class TListaNodo; 
