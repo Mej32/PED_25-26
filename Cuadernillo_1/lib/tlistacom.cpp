@@ -90,3 +90,24 @@ bool TListaPos::EsVacia() const{
 //                                                                 TListaCom
 //
 //========================================================================================================================================
+
+TListaCom::TListaCom(){this->primero = this->ultimo = NULL;}
+TListaCom::TListaCom(const TListaCom &tlc){
+    *this = tlc;
+}
+
+TListaCom &TListaCom::operator=(const TListaCom &tlc){
+    if(this != &tlc && *this != tlc){
+    //    this->primero = NULL;
+    //    this->ultimo = NULL;
+    //    TListaNodo *pos = tlc.primero;
+//
+    //    while(pos != NULL){
+    //        TListaNodo *nuevo = new TListaNodo();
+    //        *nuevo = *pos;
+    //        delete pos;
+    //        pos = nuevo->siguiente;
+    //    }
+    }
+    return *this;
+}
