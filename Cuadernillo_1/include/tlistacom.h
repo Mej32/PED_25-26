@@ -70,8 +70,11 @@ class TListaCom{
     TListaPos Primera() const; 
     TListaPos Ultima() const;
 
+    friend ostream & operator<<(ostream &os, TListaCom &tlc);
+    
     friend class TListaPos; 
     friend class TListaNodo; 
+
 };
 
 #endif
